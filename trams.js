@@ -12,6 +12,9 @@ const continents = {
     'australia': 'Австралия и Океания'
 };
 
+// Placeholder изображение
+const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%239b59b6' width='400' height='200'/%3E%3Ctext fill='white' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='40'%3E🚃%3C/text%3E%3C/svg%3E";
+
 fetch('trams-data.json')
     .then(response => response.json())
     .then(data => {
@@ -26,7 +29,6 @@ fetch('trams-data.json')
 function initializeFilters() {
     const searchBox = document.querySelector('.search-box');
     
-    // Создаём контейнер для фильтров
     const filtersHTML = `
         <div class="filters">
             <div class="filter-group">
@@ -63,14 +65,13 @@ function initializeFilters() {
     
     searchBox.insertAdjacentHTML('afterend', filtersHTML);
     
-    // Обработчики фильтров
     document.getElementById('continentFilter').addEventListener('change', handleFilters);
     document.getElementById('countryFilter').addEventListener('change', handleFilters);
     document.getElementById('cityFilter').addEventListener('change', handleFilters);
     document.getElementById('typeFilter').addEventListener('change', handleFilters);
     
-    // Инициализируем фильтры для Европы
     updateCountryFilter('europe');
+    handleFilters();
 }
 
 // Обновление списка стран
@@ -91,7 +92,6 @@ function updateCountryFilter(continentCode) {
     countryFilter.innerHTML = '<option value="">Все страны</option>' + 
         [...countries].sort().map(country => `<option value="${country}">${country}</option>`).join('');
     
-    // Сбрасываем фильтр городов
     updateCityFilter(continentCode, '');
 }
 
@@ -125,7 +125,6 @@ function handleFilters() {
     const type = document.getElementById('typeFilter').value;
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     
-    // Обновляем каскадные фильтры
     if (continent !== handleFilters.lastContinent) {
         updateCountryFilter(continent);
         handleFilters.lastContinent = continent;
@@ -136,18 +135,14 @@ function handleFilters() {
         handleFilters.lastCountry = country;
     }
     
-    // Фильтрация
     filteredData = tramsData.filter(tram => {
-        // Фильтр по типу
         const matchType = !type || tram.type === type;
         
-        // Фильтр по поиску
         const matchSearch = !searchTerm || 
             tram.model.toLowerCase().includes(searchTerm) ||
             tram.manufacturer.toLowerCase().includes(searchTerm) ||
             tram.countryOfOrigin.toLowerCase().includes(searchTerm);
         
-        // Фильтр по географии (где эксплуатируется)
         let matchGeo = true;
         if (continent || country || city) {
             matchGeo = tram.cities && tram.cities.some(c => {
@@ -175,19 +170,17 @@ function displayTrams(trams) {
     
     grid.innerHTML = trams.map(tram => `
         <a href="tram.html?id=${tram.id}" class="tram-card card-link">
-            <img src="${tram.image}" alt="${tram.model}" class="card-image" onerror="this.src='https://via.placeholder.com/400x200/9b59b6/ffffff?text=${tram.model}'">
+            <img src="${tram.image}" alt="${tram.model}" class="card-image" onerror="this.onerror=null; this.src='${placeholderImage}'">
             <div class="card-content">
                 <h3>${tram.model}</h3>
                 <p class="country">🏭 ${tram.manufacturer}</p>
                 <p><strong>Страна производства:</strong> ${tram.countryOfOrigin}</p>
                 <p><strong>Годы выпуска:</strong> ${tram.yearStart}${tram.yearEnd ? ' - ' + tram.yearEnd : ' - н.в.'}</p>
                 <p><strong>Тип:</strong> ${tram.typeName}</p>
-                <p style="margin-top: 1rem;">${tram.description}</p>
             </div>
         </a>
     `).join('');
 }
 
 // Поиск
-const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', handleFilters);
+document.getElementById('searchInput').addEventListener('input', handleFilters);
