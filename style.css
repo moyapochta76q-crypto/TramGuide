@@ -632,4 +632,78 @@ footer {
     .gallery-grid {
         grid-template-columns: 1fr;
     }
+    /* Секция карты */
+.map-section {
+    padding: 2rem 0;
+    background: #f8f9fa;
+}
+
+.map-section .section-header {
+    margin-bottom: 1rem;
+}
+
+.map-section .section-header h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.map-section .section-header p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+#map {
+    height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.map-legend-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.legend-item-inline {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+}
+
+/* Адаптив для карты */
+@media (max-width: 768px) {
+    #map {
+        height: 350px;
+    }
+    
+    .map-legend-inline {
+        gap: 0.5rem;
+    }
+    
+    .legend-item-inline {
+        font-size: 0.75rem;
+    }
 }
