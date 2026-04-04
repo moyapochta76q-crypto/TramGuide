@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Системы мира — TramGuide</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>🚋 TramGuide</h1>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="systems.html" class="active">Системы мира</a></li>
+                    <li><a href="trams.html">Вагоны</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Трамвайные системы мира</h2>
+                <p>Информация о трамвайных сетях городов планеты</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Поиск по городу или стране...">
+                </div>
+
+                <div class="systems-grid" id="systemsGrid">
+                    <!-- Карточки систем будут здесь -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TramGuide. Энциклопедия трамвайных систем мира</p>
+        </div>
+    </footer>
+
+    <script src="systems.js"></script>
+</body>
+</html>
