@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "model": "71-623",
+        "manufacturer": "УКВЗ (Усть-Катавский вагоностроительный завод)",
+        "country": "Россия",
+        "yearStart": 2003,
+        "yearEnd": null,
+        "type": "Низкопольный",
+        "description": "Современный низкопольный трамвай, эксплуатируется во многих городах России и СНГ. Отличается комфортом и надёжностью.",
+        "image": "https://i.ibb.co/placeholder4.jpg",
+        "length": 15.2,
+        "capacity": 150
+    },
+    {
+        "id": 2,
+        "model": "Tatra T3",
+        "manufacturer": "ČKD Tatra",
+        "country": "Чехословакия",
+        "yearStart": 1960,
+        "yearEnd": 1999,
+        "type": "Высокопольный",
+        "description": "Легендарный трамвай, самый массовый в мире. Выпущено более 14 000 вагонов. До сих пор эксплуатируется во многих городах.",
+        "image": "https://i.ibb.co/placeholder5.jpg",
+        "length": 14.5,
+        "capacity": 120
+    },
+    {
+        "id": 3,
+        "model": "Stadler Tango",
+        "manufacturer": "Stadler Rail",
+        "country": "Швейцария",
+        "yearStart": 2006,
+        "yearEnd": null,
+        "type": "Низкопольный",
+        "description": "Современный модульный трамвай высокого класса. Эксплуатируется в городах Германии, Швейцарии и других странах.",
+        "image": "https://i.ibb.co/placeholder6.jpg",
+        "length": 36.6,
+        "capacity": 250
+    }
+]
