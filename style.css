@@ -273,4 +273,363 @@ footer {
     .trams-grid {
         grid-template-columns: 1fr;
     }
+    /* Фильтры */
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.9rem;
+}
+
+.filter-group select {
+    padding: 0.7rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-group select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* Кликабельные карточки */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.system-card,
+.tram-card {
+    cursor: pointer;
+}
+
+/* Детальная страница */
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.back-link:hover {
+    opacity: 0.7;
+}
+
+.detail-layout {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.detail-main-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.detail-info {
+    margin-bottom: 2rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.detail-description {
+    margin-bottom: 2rem;
+}
+
+.detail-description h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.description-text p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Спецификации */
+.specs-section {
+    margin-top: 2rem;
+}
+
+.specs-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.spec-label {
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+.spec-value {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Факты */
+.facts-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+    border-radius: 5px;
+}
+
+.facts-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.facts-list {
+    list-style: none;
+    padding: 0;
+}
+
+.facts-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #555;
+}
+
+.facts-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #3498db;
+    font-weight: bold;
+}
+
+/* Города эксплуатации */
+.cities-section {
+    margin: 2rem 0;
+}
+
+.cities-section h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.cities-list {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.country-cities {
+    padding: 0.5rem 0;
+    color: #555;
+}
+
+.country-cities strong {
+    color: #2c3e50;
+}
+
+/* Галерея */
+.gallery {
+    margin: 2rem 0;
+}
+
+.gallery h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+/* Видео */
+.videos {
+    margin: 2rem 0;
+}
+
+.videos h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.videos-grid iframe {
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
+
+/* Модальное окно для изображений */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+.modal-backdrop {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.modal-backdrop img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+.external-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Сообщение об ошибке */
+.error-message {
+    text-align: center;
+    padding: 3rem;
+}
+
+.error-message h3 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+/* Цвет заголовка для вагонов */
+.page-header-tram {
+    background: linear-gradient(135deg, #9b59b6 0%, #e74c3c 100%);
+}
+
+/* Адаптив для детальных страниц */
+@media (max-width: 768px) {
+    .filters {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 }
