@@ -24,6 +24,9 @@ const continentColors = {
     'australia': '#1abc9c'
 };
 
+// Placeholder изображение
+const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%233498db' width='400' height='200'/%3E%3Ctext fill='white' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='40'%3E🚋%3C/text%3E%3C/svg%3E";
+
 // Инициализация карты
 function initMap() {
     map = L.map('map').setView([45, 20], 3);
@@ -134,7 +137,6 @@ function initializeFilters() {
     document.getElementById('countryFilter').addEventListener('change', handleFilters);
     
     updateCountryFilter('europe');
-    // Применяем фильтр Европы по умолчанию
     handleFilters();
 }
 
@@ -175,15 +177,15 @@ function handleFilters() {
     displaySystems(filteredData);
     addMarkersToMap(filteredData);
     
-    // Центрируем карту на отфильтрованных системах
     if (filteredData.length > 0) {
-        const bounds = L.latLngBounds(
-            filteredData
-                .filter(s => s.coordinates)
-                .map(s => [s.coordinates.lat, s.coordinates.lng])
-        );
-        if (bounds.isValid()) {
-            map.fitBounds(bounds, { padding: [30, 30] });
+        const coordSystems = filteredData.filter(s => s.coordinates);
+        if (coordSystems.length > 0) {
+            const bounds = L.latLngBounds(
+                coordSystems.map(s => [s.coordinates.lat, s.coordinates.lng])
+            );
+            if (bounds.isValid()) {
+                map.fitBounds(bounds, { padding: [30, 30] });
+            }
         }
     }
 }
@@ -199,7 +201,7 @@ function displaySystems(systems) {
     
     grid.innerHTML = systems.map(system => `
         <a href="system.html?id=${system.id}" class="system-card card-link">
-            <img src="${system.image}" alt="${system.city}" class="card-image" onerror="this.src='https://via.placeholder.com/400x200/3498db/ffffff?text=${system.city}'">
+            <img src="${system.image}" alt="${system.city}" class="card-image" onerror="this.onerror=null; this.src='${placeholderImage}'">
             <div class="card-content">
                 <h3>${system.city}</h3>
                 <p class="country">🌍 ${system.country}</p>
