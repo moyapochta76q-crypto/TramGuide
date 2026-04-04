@@ -1,8 +1,6 @@
 // Загрузка данных о системах
 let systemsData = [];
 let filteredData = [];
-let map = null;
-let markers = [];
 
 // Континенты
 const continents = {
@@ -14,85 +12,8 @@ const continents = {
     'australia': 'Австралия и Океания'
 };
 
-// Цвета маркеров
-const continentColors = {
-    'europe': '#3498db',
-    'asia': '#e74c3c',
-    'africa': '#f39c12',
-    'north_america': '#2ecc71',
-    'south_america': '#9b59b6',
-    'australia': '#1abc9c'
-};
-
 // Placeholder изображение
 const placeholderImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%233498db' width='400' height='200'/%3E%3Ctext fill='white' x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='40'%3E🚋%3C/text%3E%3C/svg%3E";
-
-// Инициализация карты
-function initMap() {
-    map = L.map('map').setView([45, 20], 3);
-    
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap',
-        maxZoom: 18,
-    }).addTo(map);
-}
-
-// Создание маркера
-function createCustomMarker(color) {
-    return L.divIcon({
-        className: 'custom-marker',
-        html: `<div style="
-            width: 20px;
-            height: 20px;
-            background: ${color};
-            border: 2px solid white;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            cursor: pointer;
-        "></div>`,
-        iconSize: [20, 20],
-        iconAnchor: [10, 10]
-    });
-}
-
-// Добавление маркеров на карту
-function addMarkersToMap(systems) {
-    // Удаляем старые маркеры
-    markers.forEach(marker => map.removeLayer(marker));
-    markers = [];
-    
-    systems.forEach(system => {
-        if (system.coordinates) {
-            const color = continentColors[system.continent] || '#95a5a6';
-            const marker = L.marker(
-                [system.coordinates.lat, system.coordinates.lng],
-                { icon: createCustomMarker(color) }
-            ).addTo(map);
-            
-            const popupContent = `
-                <div style="min-width: 200px;">
-                    <h4 style="margin: 0 0 8px 0; color: #2c3e50;">${system.city}</h4>
-                    <p style="margin: 4px 0; color: #555;"><strong>🌍</strong> ${system.country}</p>
-                    <p style="margin: 4px 0; color: #555;"><strong>📅</strong> ${system.yearOpened} г.</p>
-                    <p style="margin: 4px 0; color: #555;"><strong>📏</strong> ${system.networkLength} км</p>
-                    <a href="system.html?id=${system.id}" style="
-                        display: inline-block;
-                        margin-top: 8px;
-                        padding: 6px 12px;
-                        background: #3498db;
-                        color: white;
-                        text-decoration: none;
-                        border-radius: 4px;
-                        font-size: 13px;
-                    ">Подробнее →</a>
-                </div>
-            `;
-            
-            marker.bindPopup(popupContent);
-            markers.push(marker);
-        }
-    });
-}
 
 // Загрузка данных
 fetch('systems-data.json')
@@ -100,9 +21,13 @@ fetch('systems-data.json')
     .then(data => {
         systemsData = data;
         filteredData = data;
-        initMap();
+        
+        // Инициализируем интерактивную карту
+        if (typeof initWorldMap === 'function') {
+            initWorldMap('interactiveMap', systemsData);
+        }
+        
         initializeFilters();
-        addMarkersToMap(filteredData);
         displaySystems(filteredData);
     })
     .catch(error => console.error('Ошибка загрузки данных:', error));
@@ -118,7 +43,7 @@ function initializeFilters() {
                 <select id="continentFilter">
                     <option value="">Все континенты</option>
                     ${Object.entries(continents).map(([code, name]) => 
-                        `<option value="${code}" ${code === 'europe' ? 'selected' : ''}>${name}</option>`
+                        `<option value="${code}">${name}</option>`
                     ).join('')}
                 </select>
             </div>
@@ -136,8 +61,8 @@ function initializeFilters() {
     document.getElementById('continentFilter').addEventListener('change', handleFilters);
     document.getElementById('countryFilter').addEventListener('change', handleFilters);
     
-    updateCountryFilter('europe');
-    handleFilters();
+    // Заполняем список стран
+    updateCountryFilter('');
 }
 
 // Обновление списка стран
@@ -175,19 +100,6 @@ function handleFilters() {
     });
     
     displaySystems(filteredData);
-    addMarkersToMap(filteredData);
-    
-    if (filteredData.length > 0) {
-        const coordSystems = filteredData.filter(s => s.coordinates);
-        if (coordSystems.length > 0) {
-            const bounds = L.latLngBounds(
-                coordSystems.map(s => [s.coordinates.lat, s.coordinates.lng])
-            );
-            if (bounds.isValid()) {
-                map.fitBounds(bounds, { padding: [30, 30] });
-            }
-        }
-    }
 }
 
 // Функция отображения систем
