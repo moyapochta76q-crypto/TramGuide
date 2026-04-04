@@ -1,41 +1,134 @@
 [
     {
-        "id": 1,
+        "id": "71-623",
         "model": "71-623",
-        "manufacturer": "УКВЗ (Усть-Катавский вагоностроительный завод)",
-        "country": "Россия",
-        "yearStart": 2003,
+        "manufacturer": "УКВЗ",
+        "manufacturerFull": "Усть-Катавский вагоностроительный завод",
+        "countryOfOrigin": "Россия",
+        "yearStart": 2009,
         "yearEnd": null,
-        "type": "Низкопольный",
-        "description": "Современный низкопольный трамвай, эксплуатируется во многих городах России и СНГ. Отличается комфортом и надёжностью.",
+        "type": "low-floor",
+        "typeName": "Низкопольный",
+        "description": "Современный частично низкопольный трамвай, эксплуатируется во многих городах России и СНГ.",
+        "fullDescription": "71-623 — частично низкопольный трамвайный вагон производства Усть-Катавского завода. Разработан как модернизация модели 71-619.\n\nВагон оснащён современными системами: кондиционирование, электронные маршрутоуказатели, системы видеонаблюдения. Низкопольная часть составляет около 30% площади салона.",
         "image": "https://i.ibb.co/placeholder4.jpg",
+        "images": [],
+        "videos": [],
         "length": 15.2,
-        "capacity": 150
+        "width": 2.5,
+        "capacity": 150,
+        "seats": 25,
+        "maxSpeed": 75,
+        "power": 200,
+        "facts": [
+            "Один из самых массовых современных трамваев в России",
+            "Выпускается в нескольких модификациях",
+            "Эксплуатируется более чем в 20 городах"
+        ],
+        "cities": [
+            {"city": "Москва", "country": "Россия", "countryCode": "RU", "continent": "europe"},
+            {"city": "Санкт-Петербург", "country": "Россия", "countryCode": "RU", "continent": "europe"},
+            {"city": "Екатеринбург", "country": "Россия", "countryCode": "RU", "continent": "europe"},
+            {"city": "Минск", "country": "Беларусь", "countryCode": "BY", "continent": "europe"}
+        ]
     },
     {
-        "id": 2,
+        "id": "tatra-t3",
         "model": "Tatra T3",
         "manufacturer": "ČKD Tatra",
-        "country": "Чехословакия",
+        "manufacturerFull": "ČKD Tatra, Прага",
+        "countryOfOrigin": "Чехословакия",
         "yearStart": 1960,
         "yearEnd": 1999,
-        "type": "Высокопольный",
-        "description": "Легендарный трамвай, самый массовый в мире. Выпущено более 14 000 вагонов. До сих пор эксплуатируется во многих городах.",
+        "type": "high-floor",
+        "typeName": "Высокопольный",
+        "description": "Легендарный трамвай, самый массовый в истории. Выпущено более 14 000 вагонов.",
+        "fullDescription": "Tatra T3 — легендарный чехословацкий трамвайный вагон, ставший самым массовым в мире. За почти 40 лет производства было выпущено более 14 000 единиц.\n\nВагон отличается надёжностью, ремонтопригодностью и долговечностью. Многие вагоны эксплуатируются уже более 50 лет. Проводятся программы модернизации с установкой современного оборудования.",
         "image": "https://i.ibb.co/placeholder5.jpg",
+        "images": [],
+        "videos": [],
         "length": 14.5,
-        "capacity": 120
+        "width": 2.5,
+        "capacity": 115,
+        "seats": 32,
+        "maxSpeed": 65,
+        "power": 160,
+        "facts": [
+            "Самый массовый трамвай в истории — более 14 000 вагонов",
+            "Экспортировался в СССР, ГДР, Югославию, Румынию",
+            "Многие вагоны работают более 50 лет"
+        ],
+        "cities": [
+            {"city": "Прага", "country": "Чехия", "countryCode": "CZ", "continent": "europe"},
+            {"city": "Москва", "country": "Россия", "countryCode": "RU", "continent": "europe"},
+            {"city": "Киев", "country": "Украина", "countryCode": "UA", "continent": "europe"},
+            {"city": "Одесса", "country": "Украина", "countryCode": "UA", "continent": "europe"},
+            {"city": "Рига", "country": "Латвия", "countryCode": "LV", "continent": "europe"}
+        ]
     },
     {
-        "id": 3,
-        "model": "Stadler Tango",
-        "manufacturer": "Stadler Rail",
-        "country": "Швейцария",
-        "yearStart": 2006,
+        "id": "stadler-metelica",
+        "model": "Stadler Метелица (В85600М)",
+        "manufacturer": "Stadler Rail / Stadler Минск",
+        "manufacturerFull": "Stadler Rail (Швейцария) / Штадлер Минск (Беларусь)",
+        "countryOfOrigin": "Беларусь/Швейцария",
+        "yearStart": 2017,
         "yearEnd": null,
-        "type": "Низкопольный",
-        "description": "Современный модульный трамвай высокого класса. Эксплуатируется в городах Германии, Швейцарии и других странах.",
+        "type": "low-floor",
+        "typeName": "Низкопольный",
+        "description": "Современный полностью низкопольный трамвай, производимый в Беларуси по швейцарской технологии.",
+        "fullDescription": "«Метелица» — современный низкопольный трамвай, производимый на заводе Штадлер Минск. Это первый полностью низкопольный трамвай, выпускаемый в Беларуси.\n\nВагон оснащён по последнему слову техники: климат-контр��ль, USB-зарядки, Wi-Fi, системы информирования пассажиров.",
         "image": "https://i.ibb.co/placeholder6.jpg",
-        "length": 36.6,
-        "capacity": 250
+        "images": [],
+        "videos": [],
+        "length": 27.3,
+        "width": 2.5,
+        "capacity": 235,
+        "seats": 60,
+        "maxSpeed": 75,
+        "power": 480,
+        "facts": [
+            "Первый полностью низкопольный трамвай белорусского производства",
+            "100% низкий пол",
+            "Производится в Фаниполе под Минском"
+        ],
+        "cities": [
+            {"city": "Минск", "country": "Беларусь", "countryCode": "BY", "continent": "europe"},
+            {"city": "Санкт-Петербург", "country": "Россия", "countryCode": "RU", "continent": "europe"}
+        ]
+    },
+    {
+        "id": "alstom-citadis",
+        "model": "Alstom Citadis",
+        "manufacturer": "Alstom",
+        "manufacturerFull": "Alstom Transport, Франция",
+        "countryOfOrigin": "Франция",
+        "yearStart": 1997,
+        "yearEnd": null,
+        "type": "low-floor",
+        "typeName": "Низкопольный",
+        "description": "Семейство современных низкопольных трамваев, один из самых успешных проектов в мире.",
+        "fullDescription": "Citadis — семейство низкопольных трамваев французской компании Alstom. Выпускается с 1997 года и стал одним из самых успешных трамвайных проектов в мире.\n\nВагоны Citadis эксплуатируются более чем в 50 городах на всех континентах. Доступны различные модификации по длине и ширине.",
+        "image": "https://i.ibb.co/placeholder7.jpg",
+        "images": [],
+        "videos": [],
+        "length": 32.5,
+        "width": 2.4,
+        "capacity": 210,
+        "seats": 48,
+        "maxSpeed": 70,
+        "power": 480,
+        "facts": [
+            "Эксплуатируется более чем в 50 городах мира",
+            "Один из самых успешных современных трамваев",
+            "Выпускается в различных модификациях"
+        ],
+        "cities": [
+            {"city": "Париж", "country": "Франция", "countryCode": "FR", "continent": "europe"},
+            {"city": "Касабланка", "country": "Марокко", "countryCode": "MA", "continent": "africa"},
+            {"city": "Дубай", "country": "ОАЭ", "countryCode": "AE", "continent": "asia"},
+            {"city": "Мельбурн", "country": "Австралия", "countryCode": "AU", "continent": "australia"},
+            {"city": "Рио-де-Жанейро", "country": "Бразилия", "countryCode": "BR", "continent": "south_america"}
+        ]
     }
 ]
