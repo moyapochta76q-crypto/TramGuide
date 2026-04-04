@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Загрузка... — TramGuide</title>
+    <title>Системы мира — TramGuide</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
     <header>
@@ -24,19 +25,43 @@
     </header>
 
     <main>
-        <section class="page-header" id="pageHeader">
+        <section class="page-header">
             <div class="container">
-                <h2 id="cityName">Загрузка...</h2>
-                <p id="countryName"></p>
+                <h2>Трамвайные системы мира</h2>
+                <p>Интерактивная карта и каталог трамвайных сетей</p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3>🗺️ Карта систем</h3>
+                    <p>Кликните на маркер для просмотра информации</p>
+                </div>
+                <div id="map"></div>
+                <div class="map-legend-inline">
+                    <span class="legend-item-inline"><span class="dot" style="background:#3498db"></span> Европа</span>
+                    <span class="legend-item-inline"><span class="dot" style="background:#e74c3c"></span> Азия</span>
+                    <span class="legend-item-inline"><span class="dot" style="background:#f39c12"></span> Африка</span>
+                    <span class="legend-item-inline"><span class="dot" style="background:#2ecc71"></span> Сев. Америка</span>
+                    <span class="legend-item-inline"><span class="dot" style="background:#9b59b6"></span> Юж. Америка</span>
+                    <span class="legend-item-inline"><span class="dot" style="background:#1abc9c"></span> Австралия</span>
+                </div>
             </div>
         </section>
 
         <section class="content">
             <div class="container">
-                <a href="systems.html" class="back-link">← Назад к списку систем</a>
+                <div class="section-header">
+                    <h3>📋 Каталог систем</h3>
+                </div>
                 
-                <div class="detail-layout" id="detailContent">
-                    <p>Загрузка данных...</p>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Поиск по городу или стране...">
+                </div>
+
+                <div class="systems-grid" id="systemsGrid">
+                    <!-- Карточки систем будут здесь -->
                 </div>
             </div>
         </section>
@@ -48,6 +73,7 @@
         </div>
     </footer>
 
-    <script src="system-detail.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="systems.js"></script>
 </body>
 </html>
