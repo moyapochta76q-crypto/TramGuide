@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта систем — TramGuide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map-container {
+            margin: 2rem 0;
+        }
+        
+        .map-info {
+            background: #e8f4f8;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .leaflet-popup-content {
+            margin: 1rem;
+        }
+        
+        .popup-content h3 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+        }
+        
+        .popup-content p {
+            margin: 0.3rem 0;
+            color: #555;
+        }
+        
+        .popup-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .popup-link:hover {
+            background: #2980b9;
+        }
+        
+        .map-legend {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .legend-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html"><h1>🚋 TramGuide</h1></a>
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="systems.html">Системы мира</a></li>
+                    <li><a href="trams.html">Вагоны</a></li>
+                    <li><a href="map.html" class="active">Карта</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>🗺️ Карта трамвайных систем мира</h2>
+                <p>Интерактивная карта с отметками систем</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="map-info">
+                    <p><strong>💡 Подсказка:</strong> Кликните на маркер, чтобы увидеть информацию о системе</p>
+                </div>
+                
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+                
+                <div class="map-legend">
+                    <h3>Легенда</h3>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #3498db;"></div>
+                        <span>Европа</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #e74c3c;"></div>
+                        <span>Азия</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #f39c12;"></div>
+                        <span>Африка</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #2ecc71;"></div>
+                        <span>Северная Америка</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #9b59b6;"></div>
+                        <span>Южная Америка</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-marker" style="background: #1abc9c;"></div>
+                        <span>Австралия и Океания</span>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="systems.html" class="btn">📋 Посмотреть списком</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 TramGuide. Энциклопедия трамвайных систем мира</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>
